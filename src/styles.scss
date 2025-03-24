@@ -1,1 +1,99 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.scss */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Hauptfarbpalette */
+  --primary: #2c3e50;
+  --primary-light: #34495e;
+  --primary-dark: #1a2530;
+  --accent: #3498db;
+  --accent-gradient: linear-gradient(135deg, #3498db, #9b59b6);
+  
+  /* Hintergrund-Varianten */
+  --background: #f8f9fa;
+  --background-card: #ffffff;
+  --background-dark: #e9ecef;
+  
+  /* Text-Farben */
+  --text-primary: #2c3e50;
+  --text-secondary: #5f6c7b;
+  --text-light: #8795a1;
+  
+  /* UI-Elemente */
+  --border: #dbe1e8;
+  --shadow: rgba(44, 62, 80, 0.08);
+
+  /* Typografie */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #3498db;
+    --primary-light: #5dade2;
+    --primary-dark: #2980b9;
+    --accent: #9b59b6;
+    --accent-gradient: linear-gradient(135deg, #3498db, #9b59b6);
+    
+    --background: #121212;
+    --background-card: #1e1e24;
+    --background-dark: #0a0a0a;
+    
+    --text-primary: #ecf0f1;
+    --text-secondary: #bdc3c7;
+    --text-light: #95a5a6;
+    
+    --border: #2c3e50;
+    --shadow: rgba(0, 0, 0, 0.25);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--background);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100vh;
+  background: var(--accent-gradient);
+  opacity: 0.03;
+  z-index: -1;
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+a {
+  color: var(--primary);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+}

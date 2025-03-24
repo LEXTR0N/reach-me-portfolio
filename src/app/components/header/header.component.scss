@@ -1,0 +1,235 @@
+// src/app/components/header/header.component.scss
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 100;
+  
+  .logo {
+    z-index: 101;
+    
+    a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .logo-symbol {
+      background: var(--accent-gradient);
+      color: white;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.2rem;
+      position: relative;
+      
+      span {
+        position: absolute;
+        right: -6px;
+        bottom: -6px;
+        font-size: 0.75rem;
+        background: var(--background-card);
+        color: var(--primary);
+        border-radius: 6px;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--background);
+      }
+    }
+    
+    .logo-text {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--text-primary);
+    }
+  }
+  
+  .mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    z-index: 101;
+    
+    span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--text-primary);
+      margin: 5px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+  }
+  
+  nav {
+    position: relative;
+    
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 2.5rem;
+      
+      a {
+        position: relative;
+        text-decoration: none;
+        color: var(--text-primary);
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0.5rem 0;
+        transition: color 0.2s;
+        cursor: pointer;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: var(--accent-gradient);
+          transition: width 0.3s;
+        }
+        
+        &:hover {
+          color: var(--primary);
+          
+          &::after {
+            width: 100%;
+          }
+        }
+        
+        &.active {
+          font-weight: 600;
+          
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  
+  .contact-button {
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      background: var(--background-card);
+      color: var(--primary);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px var(--shadow);
+      }
+      
+      .contact-icon {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  
+  &.active {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 992px) {
+  .header-container {
+    .contact-button {
+      margin-left: 1rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 1rem 1.5rem;
+    
+    .mobile-menu-toggle {
+      display: block;
+      
+      &.active {
+        span {
+          &:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+          }
+          
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          
+          &:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+          }
+        }
+      }
+    }
+    
+    nav {
+      position: fixed;
+      top: 0;
+      right: -280px;
+      width: 280px;
+      height: 100vh;
+      background-color: var(--background-card);
+      padding: 6rem 2rem 2rem;
+      transition: right 0.3s ease;
+      z-index: 100;
+      box-shadow: -5px 0 15px var(--shadow);
+      
+      &.mobile-active {
+        right: 0;
+      }
+      
+      ul {
+        flex-direction: column;
+        gap: 1.5rem;
+        
+        li {
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  .mobile-menu-overlay {
+    display: block;
+  }
+}

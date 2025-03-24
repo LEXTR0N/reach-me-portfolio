@@ -1,0 +1,38 @@
+<!-- src/app/components/header/header.component.html -->
+<div class="header-container">
+  <div class="logo">
+    <a routerLink="/">
+      <img 
+        *ngIf="config.header.logoImage.path"
+        [src]="config.header.logoImage.path" 
+        [alt]="config.header.logoImage.alt" 
+        [width]="config.header.logoImage.width" 
+        [height]="config.header.logoImage.height"
+        class="logo-image"
+      >
+    </a>
+  </div>
+  
+  <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Toggle Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
+  <nav [class.mobile-active]="mobileMenuOpen">
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">{{config.header.navigation.home}}</a></li>
+      <li><a routerLink="/work" routerLinkActive="active" (click)="closeMobileMenu()">{{config.header.navigation.work}}</a></li>
+      <li><a routerLink="/about" routerLinkActive="active" (click)="closeMobileMenu()">{{config.header.navigation.about}}</a></li>
+      <li><a routerLink="/blog" routerLinkActive="active" (click)="closeMobileMenu()">{{config.header.navigation.blog}}</a></li>
+    </ul>
+  </nav>
+  
+  <div class="contact-button">
+    <a [href]="'mailto:' + config.contact.email" class="contact-link">
+      <span class="contact-icon">✉</span>
+    </a>
+  </div>
+</div>
+
+<div class="mobile-menu-overlay" [class.active]="mobileMenuOpen" (click)="closeMobileMenu()"></div>
