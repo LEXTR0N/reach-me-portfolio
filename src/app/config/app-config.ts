@@ -7,13 +7,11 @@
 export const AppConfig = {
   // Header section
   header: {
-    logoInitials: 'JC',
-    logoSecondary: '',  // Leave empty to hide
     logoImage: {
       path: 'assets/images/logo_dark.png',  // Path to your logo
       alt: 'Portfolio Logo',
-      width: 120,
-      height: 36
+      width: 200,
+      height: 80
     },
     navigation: {
       home: 'Home',
