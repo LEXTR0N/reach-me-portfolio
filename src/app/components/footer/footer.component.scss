@@ -11,39 +11,7 @@
     margin-bottom: 3rem;
     
     .logo-section {
-      max-width: 250px;
-      
-      .logo-symbol {
-        background: var(--accent-gradient);
-        color: white;
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: var(--font-heading);
-        font-weight: 700;
-        font-size: 1.2rem;
-        position: relative;
-        margin-bottom: 1.5rem;
-        
-        span {
-          position: absolute;
-          right: -6px;
-          bottom: -6px;
-          font-size: 0.75rem;
-          background: var(--background-card);
-          color: var(--primary);
-          border-radius: 6px;
-          width: 18px;
-          height: 18px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 2px solid var(--background);
-        }
-      }
+      max-width: 280px;
       
       p {
         color: var(--text-secondary);
@@ -120,10 +88,6 @@
       .logo-section {
         max-width: 100%;
         text-align: center;
-        
-        .logo-symbol {
-          margin: 0 auto 1.5rem;
-        }
       }
       
       .links-section {

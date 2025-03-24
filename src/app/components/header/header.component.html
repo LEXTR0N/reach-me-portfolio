@@ -13,12 +13,6 @@
     </a>
   </div>
   
-  <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Toggle Menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-  
   <nav [class.mobile-active]="mobileMenuOpen">
     <ul>
       <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">{{config.header.navigation.home}}</a></li>
@@ -33,6 +27,12 @@
       <span class="contact-icon">✉</span>
     </a>
   </div>
+  
+  <button class="mobile-menu-toggle" [class.active]="mobileMenuOpen" (click)="toggleMobileMenu()" aria-label="Toggle Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </div>
 
 <div class="mobile-menu-overlay" [class.active]="mobileMenuOpen" (click)="closeMobileMenu()"></div>
