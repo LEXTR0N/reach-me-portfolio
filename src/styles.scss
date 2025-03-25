@@ -26,8 +26,14 @@
   /* Typografie */
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Outfit', sans-serif;
+  
+  /* Responsive Breakpoints - NEU */
+  --breakpoint-desktop: 992px;  /* Desktop und größer */
+  --breakpoint-tablet: 768px;   /* Tablet (768px bis 991px) */
+  --breakpoint-mobile: 767px;   /* Mobil (unter 768px) */
 }
 
+/* Dark Mode bleibt unverändert */
 @media (prefers-color-scheme: dark) {
   :root {
     --primary: #3498db;
@@ -49,6 +55,8 @@
   }
 }
 
+
+/* Globale Styles bleiben weitgehend unverändert */
 * {
   margin: 0;
   padding: 0;
@@ -82,8 +90,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+/* Container-Klasse mit responsiven Anpassungen */
 .container {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 2rem;
 }
