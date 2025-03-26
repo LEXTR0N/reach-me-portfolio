@@ -23,7 +23,7 @@
   </nav>
   
   <div class="contact-button">
-    <a [href]="'mailto:' + config.contact.email" class="contact-link">
+    <a href="#" class="contact-link" (click)="openContactModal($event)">
       <span class="contact-icon">✉</span>
     </a>
   </div>

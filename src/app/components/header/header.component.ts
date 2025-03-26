@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppConfig, displayIfExists } from '../../config/app-config';
+import { ModalService } from '../../services/modal.service';
 
 @Component({
   selector: 'header',
@@ -17,6 +18,8 @@ export class HeaderComponent {
   
   mobileMenuOpen = false;
   dropdownOpen = false;
+  
+  constructor(private modalService: ModalService) {}
   
   toggleMobileMenu(): void {
     this.mobileMenuOpen = !this.mobileMenuOpen;
@@ -37,5 +40,10 @@ export class HeaderComponent {
     event.preventDefault();
     event.stopPropagation();
     this.dropdownOpen = !this.dropdownOpen;
+  }
+  
+  openContactModal(event: Event): void {
+    event.preventDefault();
+    this.modalService.openContactModal();
   }
 }
