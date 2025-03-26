@@ -1,21 +1,62 @@
 // src/app/components/footer/footer.component.scss
+@use '../../../scss/breakpoints' as b;
+
 .footer-container {
   background-color: var(--background-card);
   padding: 4rem 0 2rem;
   margin-top: 5rem;
   border-top: 1px solid var(--border);
   
+  @include b.breakpoint-down('lg') {
+    padding: 3.5rem 0 2rem;
+    margin-top: 4rem;
+  }
+  
+  @include b.breakpoint-down('md') {
+    padding: 3rem 0 1.5rem;
+    margin-top: 3rem;
+  }
+  
   .footer-content {
     display: flex;
     justify-content: space-between;
     margin-bottom: 3rem;
     
+    @include b.breakpoint-down('lg') {
+      margin-bottom: 2.5rem;
+    }
+    
+    @include b.breakpoint-down('md') {
+      flex-direction: column;
+      margin-bottom: 2rem;
+      gap: 2rem;
+      align-items: center;
+      text-align: center;
+    }
+    
     .logo-section {
       max-width: 280px;
+      
+      @include b.breakpoint-down('lg') {
+        max-width: 250px;
+      }
+      
+      @include b.breakpoint-down('md') {
+        max-width: 100%;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       
       p {
         color: var(--text-secondary);
         line-height: 1.6;
+        
+        @include b.breakpoint-down('md') {
+          text-align: center;
+          max-width: 80%;
+        }
       }
     }
     
@@ -23,23 +64,61 @@
       display: flex;
       gap: 4rem;
       
+      @include b.breakpoint-down('lg') {
+        gap: 3rem;
+      }
+      
+      @include b.breakpoint-down('md') {
+        gap: 2.5rem;
+        justify-content: center;
+      }
+      
+      @include b.breakpoint-down('sm') {
+        gap: 2rem; // Reduzierter Abstand bei kleinen Bildschirmen
+      }
+      
       .link-group {
         h3 {
           font-size: 1.1rem;
           margin-bottom: 1.2rem;
           color: var(--text-primary);
+          
+          @include b.breakpoint-down('md') {
+            margin-bottom: 1rem;
+            text-align: center;
+          }
+          
+          @include b.breakpoint-down('sm') {
+            font-size: 1rem;
+          }
         }
         
         ul {
           list-style: none;
           padding: 0;
           
+          @include b.breakpoint-down('md') {
+            text-align: center;
+          }
+          
           li {
             margin-bottom: 0.8rem;
+            
+            @include b.breakpoint-down('md') {
+              margin-bottom: 0.7rem;
+            }
             
             a {
               color: var(--text-secondary);
               transition: color 0.2s;
+              
+              @include b.breakpoint-down('md') {
+                font-size: 0.95rem;
+              }
+              
+              @include b.breakpoint-down('sm') {
+                font-size: 0.9rem; // Kleinere Schrift auf sehr kleinen Bildschirmen
+              }
               
               &:hover {
                 color: var(--accent);
@@ -58,9 +137,24 @@
     padding-top: 2rem;
     border-top: 1px solid var(--border);
     
+    @include b.breakpoint-down('lg') {
+      padding-top: 1.8rem;
+    }
+    
+    @include b.breakpoint-down('md') {
+      flex-direction: column;
+      padding-top: 1.5rem;
+      gap: 1rem;
+      text-align: center;
+    }
+    
     .copyright {
       color: var(--text-light);
       font-size: 0.9rem;
+      
+      @include b.breakpoint-down('md') {
+        margin-bottom: 0.5rem;
+      }
     }
     
     .made-with {
@@ -70,10 +164,13 @@
       color: var(--text-light);
       font-size: 0.9rem;
       
+      @include b.breakpoint-down('md') {
+        justify-content: center;
+      }
+      
       svg {
         color: #e74c3c;
       }
     }
   }
 }
-
