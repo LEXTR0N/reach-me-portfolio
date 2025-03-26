@@ -15,9 +15,9 @@ export const AppConfig = {
     },
     navigation: {
       home: 'Home',
-      work: 'Work', 
-      about: 'About',
-      blog: 'Blog'
+      about: 'About', 
+      skills: 'Skills',
+      projects: 'Projects'
     }
   },
   
