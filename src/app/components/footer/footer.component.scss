@@ -3,9 +3,10 @@
 
 .footer-container {
   background-color: var(--background-card);
-  padding: 4rem 0 2rem;
+  padding: 2rem 0 2rem;
   margin-top: 5rem;
   border-top: 1px solid var(--border);
+
   
   @include b.breakpoint-down('lg') {
     padding: 3.5rem 0 2rem;
@@ -21,6 +22,9 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 3rem;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding: 0 2rem;
     
     @include b.breakpoint-down('lg') {
       margin-bottom: 2.5rem;
@@ -134,8 +138,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 2rem;
     border-top: 1px solid var(--border);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
     
     @include b.breakpoint-down('lg') {
       padding-top: 1.8rem;

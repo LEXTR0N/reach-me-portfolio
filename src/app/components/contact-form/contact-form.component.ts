@@ -1,8 +1,10 @@
 // src/app/components/contact-form/contact-form.component.ts
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactService } from '../../services/contact.service';
+import { ModalService } from '../../services/modal.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-contact-form',
@@ -11,19 +13,55 @@ import { ContactService } from '../../services/contact.service';
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.scss']
 })
-export class ContactFormComponent {
+export class ContactFormComponent implements OnInit, OnDestroy {
   contactForm: FormGroup;
   formSubmitted = false;
   submitSuccess = false;
   submitError = false;
+  private subscription = new Subscription();
   
-  constructor(private fb: FormBuilder, private contactService: ContactService) {
+  constructor(
+    private fb: FormBuilder, 
+    private contactService: ContactService,
+    private modalService: ModalService
+  ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       subject: ['', [Validators.required]],
       message: ['', [Validators.required, Validators.minLength(10)]]
     });
+  }
+  
+  ngOnInit() {
+    // Abonnieren des Modal-Status
+    this.subscription.add(
+      this.modalService.contactModalOpen$.subscribe(isOpen => {
+        // Wenn Modal geschlossen wird, setze die Formvalidierung zurück, aber behalte die Werte
+        if (!isOpen && this.formSubmitted) {
+          this.resetFormValidation();
+        }
+      })
+    );
+  }
+  
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+  
+  // Neue Methode, um nur die Validierung zurückzusetzen, nicht die Werte
+  resetFormValidation() {
+    this.formSubmitted = false;
+    
+    // Markiere alle Formularkontrollen als "unberührt"
+    Object.keys(this.contactForm.controls).forEach(key => {
+      const control = this.contactForm.get(key);
+      control?.markAsUntouched();
+    });
+    
+    // Zurücksetzen von Erfolgs- und Fehlermeldungen
+    this.submitSuccess = false;
+    this.submitError = false;
   }
   
   onSubmit() {
