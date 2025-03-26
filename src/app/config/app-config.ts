@@ -1,8 +1,8 @@
 // src/app/config/app-config.ts
 
+import { PersonalConfig } from './personal-config';
 import { HeaderConfig } from './header-config';
 import { FooterConfig } from './footer-config';
-import { ContactConfig } from './contact-config';
 import { HomeConfig } from './home-config';
 import { AboutConfig } from './about-config';
 import { SkillsConfig } from './skills-config';
@@ -14,11 +14,19 @@ import { displayIfExists } from './utils';
  * The structure is divided into logical sections, imported from separate files
  */
 export const AppConfig = {
+  // Zentrale persönliche Informationen
+  personal: PersonalConfig,
+  
   // Header section
   header: HeaderConfig,
   
   // Contact information
-  contact: ContactConfig,
+  contact: {
+    email: PersonalConfig.contact.email,
+    twitter: PersonalConfig.contact.social.twitter.username,
+    linkedin: PersonalConfig.contact.social.linkedin.username,
+    github: PersonalConfig.contact.social.github.username
+  },
   
   // Homepage content
   home: HomeConfig,
