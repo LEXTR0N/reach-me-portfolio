@@ -11,7 +11,7 @@ import { ModalService } from '../../services/modal.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule, ModalComponent, ContactFormComponent],
+  imports: [RouterLink, CommonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -37,9 +37,5 @@ export class HomeComponent implements OnInit, OnDestroy {
   
   openContactModal() {
     this.modalService.openContactModal();
-  }
-  
-  closeContactModal() {
-    this.modalService.closeContactModal();
   }
 }
