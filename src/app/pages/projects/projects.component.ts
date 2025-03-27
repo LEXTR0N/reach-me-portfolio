@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppConfig, displayIfExists } from '../../config/app-config';
+import { ProjectDetailModalComponent } from '../../components/project-detail-modal/project-detail-modal.component';
 
 interface ProjectFilter {
   id: string;
@@ -29,7 +30,7 @@ interface Project {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProjectDetailModalComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
@@ -51,6 +52,10 @@ export class ProjectsComponent implements OnInit {
   
   // Projects after filtering
   filteredProjects: Project[] = [];
+  
+  // Project detail modal
+  selectedProject: Project | null = null;
+  isProjectModalOpen = false;
   
   ngOnInit() {
     // Load projects and filters from config
@@ -92,5 +97,20 @@ export class ProjectsComponent implements OnInit {
     // For a real implementation, you might want to check if the image exists
     // For now, we'll just return the path and assume it exists
     return imagePath || 'assets/images/projects/placeholder.jpg';
+  }
+  
+  // Open project detail modal
+  openProjectModal(project: Project): void {
+    this.selectedProject = project;
+    this.isProjectModalOpen = true;
+    // Prevent scrolling when modal is open
+    document.body.style.overflow = 'hidden';
+  }
+  
+  // Close project detail modal
+  closeProjectModal(): void {
+    this.isProjectModalOpen = false;
+    // Re-enable scrolling
+    document.body.style.overflow = '';
   }
 }
