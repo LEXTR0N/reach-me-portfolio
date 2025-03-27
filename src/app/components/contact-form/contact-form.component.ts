@@ -34,10 +34,10 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   }
   
   ngOnInit() {
-    // Abonnieren des Modal-Status
+    // Subscribe to modal status
     this.subscription.add(
       this.modalService.contactModalOpen$.subscribe(isOpen => {
-        // Wenn Modal geschlossen wird, setze die Formvalidierung zurück, aber behalte die Werte
+        // If modal is closed, reset form validation but keep the values
         if (!isOpen && this.formSubmitted) {
           this.resetFormValidation();
         }
@@ -49,17 +49,17 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
   
-  // Neue Methode, um nur die Validierung zurückzusetzen, nicht die Werte
+  // New method to reset only validation, not values
   resetFormValidation() {
     this.formSubmitted = false;
     
-    // Markiere alle Formularkontrollen als "unberührt"
+    // Mark all form controls as "untouched"
     Object.keys(this.contactForm.controls).forEach(key => {
       const control = this.contactForm.get(key);
       control?.markAsUntouched();
     });
     
-    // Zurücksetzen von Erfolgs- und Fehlermeldungen
+    // Reset success and error messages
     this.submitSuccess = false;
     this.submitError = false;
   }
@@ -71,7 +71,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       return;
     }
     
-    // Hier würde normalerweise der API-Aufruf erfolgen
+    // Here would normally be the API call
     this.contactService.sendContactForm(this.contactForm.value)
       .subscribe({
         next: () => {
@@ -79,7 +79,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
           this.contactForm.reset();
           this.formSubmitted = false;
           
-          // Nach 5 Sekunden Success-Meldung zurücksetzen
+          // Reset success message after 5 seconds
           setTimeout(() => {
             this.submitSuccess = false;
           }, 5000);
@@ -87,7 +87,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
         error: () => {
           this.submitError = true;
           
-          // Nach 5 Sekunden Error-Meldung zurücksetzen
+          // Reset error message after 5 seconds
           setTimeout(() => {
             this.submitError = false;
           }, 5000);
@@ -95,7 +95,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       });
   }
   
-  // Hilfsfunktionen für die Formularvalidierung im Template
+  // Helper functions for form validation in the template
   get nameControl() { return this.contactForm.get('name'); }
   get emailControl() { return this.contactForm.get('email'); }
   get subjectControl() { return this.contactForm.get('subject'); }

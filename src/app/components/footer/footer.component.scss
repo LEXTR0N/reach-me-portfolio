@@ -78,7 +78,7 @@
       }
       
       @include b.breakpoint-down('sm') {
-        gap: 2rem; // Reduzierter Abstand bei kleinen Bildschirmen
+        gap: 2rem;
       }
       
       .link-group {
@@ -121,7 +121,7 @@
               }
               
               @include b.breakpoint-down('sm') {
-                font-size: 0.9rem; // Kleinere Schrift auf sehr kleinen Bildschirmen
+                font-size: 0.9rem;
               }
               
               &:hover {

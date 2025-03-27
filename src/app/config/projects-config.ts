@@ -1,7 +1,7 @@
 // src/app/config/projects-config.ts
 import { PersonalConfig } from './personal-config';
 
-// Funktionen zum einfachen Erstellen von Link-URLs
+// Functions for easily creating link URLs
 const createGithubLink = (repo: string) => 
   `${PersonalConfig.contact.social.github.url}/${repo}`;
 

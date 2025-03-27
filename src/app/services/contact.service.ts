@@ -9,15 +9,15 @@ import { delay } from 'rxjs/operators';
 export class ContactService {
   constructor() { }
   
-  // Mockup-Service, der eine erfolgreiche API-Antwort simuliert
-  // In einer echten Anwendung würde hier ein HTTP-Request an einen Backend-Service erfolgen
+  // Mock service that simulates a successful API response
+  // In a real application, this would be an HTTP request to a backend service
   sendContactForm(formData: any): Observable<any> {
     console.log('Contact form data:', formData);
     
-    // Simulieren einer API-Verzögerung von 1 Sekunde
+    // Simulate an API delay of 1 second
     return of({ success: true }).pipe(delay(1000));
     
-    // In einer echten Anwendung würde es so aussehen:
+    // In a real application, it would look like this:
     // return this.http.post('/api/contact', formData);
   }
 }

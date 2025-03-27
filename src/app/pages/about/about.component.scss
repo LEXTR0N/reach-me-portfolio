@@ -123,7 +123,7 @@
         display: block;
         text-align: center;
         
-        /* Diese Regel sorgt dafür, dass alle direkten Kindelemente zentriert sind */
+        /* This rule ensures that all direct child elements are centered */
         > * {
           margin-left: auto;
           margin-right: auto;
@@ -156,7 +156,7 @@
         margin-bottom: 2rem;
 
         @include b.breakpoint-down('lg') {
-          /* Anzeige als Blocktext */
+          /* Display as block text */
           display: block;
         }
 
