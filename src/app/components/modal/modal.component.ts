@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./modal.component.scss']
 })
 
-//TODO: Remove Close on Mouseclick release
 export class ModalComponent {
   @Input() isOpen = false;
   @Output() close = new EventEmitter<void>();
