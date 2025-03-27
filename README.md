@@ -1,6 +1,14 @@
 Foto Person
 https://www.pexels.com/de-de/foto/mann-in-roter-jacke-1681010/
 
+Weitere Fotos:
+
+https://pixabay.com/de/photos/code-programming-javascript-5113374/
+https://pixabay.com/de/photos/design-internet-www-webdesign-web-1210160/
+https://pixabay.com/de/illustrations/computer-computercode-programmierung-1833058/
+https://pixabay.com/de/vectors/app-handy-die-app-auf-dem-handy-3314295/
+https://pixabay.com/de/illustrations/server-daten-rechner-netzwerk-5451985/
+
 
 # ReachMePortfolio
 
