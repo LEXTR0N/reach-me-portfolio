@@ -2,32 +2,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Hauptfarbpalette */
-  --primary: #2c3e50;
-  --primary-light: #34495e;
-  --primary-dark: #1a2530;
-  --accent: #3498db;
-  --accent-gradient: linear-gradient(135deg, #3498db, #9b59b6);
+  /* Hauptfarbpalette - Verbesserte Kontraste für Light Mode */
+  --primary: #1e3a5f;            /* Dunkleres Blau für bessere Lesbarkeit */
+  --primary-light: #2c5282;      /* Angepasst für besseren Kontrast */
+  --primary-dark: #0d2240;       /* Dunkler für mehr Tiefe */
+  --accent: #2563eb;             /* Kräftigeres Blau für Akzente */
+  --accent-gradient: linear-gradient(135deg, #2563eb, #8b5cf6);  /* Intensiverer Gradient */
   
-  /* Hintergrund-Varianten */
-  --background: #f8f9fa;
-  --background-card: #ffffff;
-  --background-dark: #e9ecef;
+  /* Hintergrund-Varianten mit mehr Kontrast */
+  --background: #f1f5f9;         /* Leicht grauer Hintergrund */
+  --background-card: #ffffff;    /* Weiß für Karten bleibt */
+  --background-dark: #e2e8f0;    /* Dunklerer Hintergrund für bestimmte Elemente */
   
-  /* Text-Farben */
-  --text-primary: #2c3e50;
-  --text-secondary: #5f6c7b;
-  --text-light: #8795a1;
+  /* Text-Farben mit mehr Kontrast */
+  --text-primary: #0f172a;       /* Dunklerer Text für bessere Lesbarkeit */
+  --text-secondary: #334155;     /* Dunkler sekundärer Text */
+  --text-light: #64748b;         /* Hellerer, aber noch gut lesbarer Text */
   
-  /* UI-Elemente */
-  --border: #dbe1e8;
-  --shadow: rgba(44, 62, 80, 0.08);
+  /* UI-Elemente mit besserer Sichtbarkeit */
+  --border: #cbd5e1;             /* Sichtbarere Rahmen */
+  --shadow: rgba(15, 23, 42, 0.08);  /* Etwas dunklere Schatten */
 
   /* Typografie */
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Outfit', sans-serif;
   
-  /* Responsive Breakpoints - NEU */
+  /* Responsive Breakpoints */
   --breakpoint-desktop: 992px;  /* Desktop und größer */
   --breakpoint-tablet: 768px;   /* Tablet (768px bis 991px) */
   --breakpoint-mobile: 767px;   /* Mobil (unter 768px) */

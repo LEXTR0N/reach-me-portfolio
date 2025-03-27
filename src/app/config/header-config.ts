@@ -2,9 +2,17 @@
 import { PersonalConfig } from './personal-config';
 
 export const HeaderConfig = {
-  logoImage: {
-    path: PersonalConfig.images.logo,
-    alt: `${PersonalConfig.name} Portfolio Logo`,
+  // Light Mode Logo
+  logoImageLight: {
+    path: PersonalConfig.images.logoLight,
+    alt: `${PersonalConfig.name} Portfolio Logo - Light Mode`,
+    width: 200,
+    height: 80
+  },
+  // Dark Mode Logo
+  logoImageDark: {
+    path: PersonalConfig.images.logoDark,
+    alt: `${PersonalConfig.name} Portfolio Logo - Dark Mode`,
     width: 200,
     height: 80
   },

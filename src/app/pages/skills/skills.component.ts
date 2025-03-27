@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppConfig, displayIfExists } from '../../config/app-config';
+import { FormsModule } from '@angular/forms';
 
 interface Skill {
   name: string;
@@ -18,7 +19,7 @@ interface SkillCategory {
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss'
 })
@@ -46,8 +47,9 @@ export class SkillsComponent implements OnInit {
   }
 
   // Change active category (for mobile view)
-  setActiveCategory(index: number): void {
-    this.activeCategory = index;
+  setActiveCategory(index: any): void {
+    // Convert to number explicitly, since select values are strings
+    this.activeCategory = typeof index === 'string' ? parseInt(index, 10) : index;
   }
 
   // Utility method to generate an array of stars based on skill level

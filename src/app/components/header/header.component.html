@@ -2,12 +2,22 @@
 <div class="header-container">
   <div class="logo">
     <a routerLink="/">
+      <!-- Light Mode Logo -->
       <img 
-        *ngIf="config.header.logoImage.path"
-        [src]="config.header.logoImage.path" 
-        [alt]="config.header.logoImage.alt" 
-        [width]="config.header.logoImage.width" 
-        [height]="config.header.logoImage.height"
+        *ngIf="config.header.logoImageLight.path && !isDarkMode"
+        [src]="config.header.logoImageLight.path" 
+        [alt]="config.header.logoImageLight.alt" 
+        [width]="config.header.logoImageLight.width" 
+        [height]="config.header.logoImageLight.height"
+        class="logo-image"
+      >
+      <!-- Dark Mode Logo -->
+      <img 
+        *ngIf="config.header.logoImageDark.path && isDarkMode"
+        [src]="config.header.logoImageDark.path" 
+        [alt]="config.header.logoImageDark.alt" 
+        [width]="config.header.logoImageDark.width" 
+        [height]="config.header.logoImageDark.height"
         class="logo-image"
       >
     </a>
