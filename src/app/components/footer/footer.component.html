@@ -3,9 +3,6 @@
   <div class="container">
     <div class="footer-content">
       <div class="logo-section">
-        <div class="logo-symbol">
-          {{config.header.logoInitials}}<span *ngIf="displayIfExists(config.header.logoSecondary)">{{config.header.logoSecondary}}</span>
-        </div>
         <p *ngIf="displayIfExists(config.footer.tagline)">{{config.footer.tagline}}</p>
       </div>
       
@@ -14,9 +11,9 @@
           <h3 *ngIf="displayIfExists(config.footer.labels.pages)">{{config.footer.labels.pages}}</h3>
           <ul>
             <li><a routerLink="/">{{config.header.navigation.home}}</a></li>
-            <li><a routerLink="/work">{{config.header.navigation.work}}</a></li>
             <li><a routerLink="/about">{{config.header.navigation.about}}</a></li>
-            <li><a routerLink="/blog">{{config.header.navigation.blog}}</a></li>
+            <li><a routerLink="/skills">{{config.header.navigation.skills}}</a></li>
+            <li><a routerLink="/projects">{{config.header.navigation.projects}}</a></li>
           </ul>
         </div>
         

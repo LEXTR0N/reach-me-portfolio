@@ -2,37 +2,47 @@
 <div class="header-container">
   <div class="logo">
     <a routerLink="/">
+      <!-- Light Mode Logo -->
       <img 
-        *ngIf="config.header.logoImage.path"
-        [src]="config.header.logoImage.path" 
-        [alt]="config.header.logoImage.alt" 
-        [width]="config.header.logoImage.width" 
-        [height]="config.header.logoImage.height"
+        *ngIf="config.header.logoImageLight.path && !isDarkMode"
+        [src]="config.header.logoImageLight.path" 
+        [alt]="config.header.logoImageLight.alt" 
+        [width]="config.header.logoImageLight.width" 
+        [height]="config.header.logoImageLight.height"
+        class="logo-image"
+      >
+      <!-- Dark Mode Logo -->
+      <img 
+        *ngIf="config.header.logoImageDark.path && isDarkMode"
+        [src]="config.header.logoImageDark.path" 
+        [alt]="config.header.logoImageDark.alt" 
+        [width]="config.header.logoImageDark.width" 
+        [height]="config.header.logoImageDark.height"
         class="logo-image"
       >
     </a>
   </div>
   
-  <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Toggle Menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-  
   <nav [class.mobile-active]="mobileMenuOpen">
     <ul>
       <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">{{config.header.navigation.home}}</a></li>
-      <li><a routerLink="/work" routerLinkActive="active" (click)="closeMobileMenu()">{{config.header.navigation.work}}</a></li>
       <li><a routerLink="/about" routerLinkActive="active" (click)="closeMobileMenu()">{{config.header.navigation.about}}</a></li>
-      <li><a routerLink="/blog" routerLinkActive="active" (click)="closeMobileMenu()">{{config.header.navigation.blog}}</a></li>
+      <li><a routerLink="/skills" routerLinkActive="active" (click)="closeMobileMenu()">{{config.header.navigation.skills}}</a></li>
+      <li><a routerLink="/projects" routerLinkActive="active" (click)="closeMobileMenu()">{{config.header.navigation.projects}}</a></li>
     </ul>
   </nav>
   
   <div class="contact-button">
-    <a [href]="'mailto:' + config.contact.email" class="contact-link">
+    <a href="#" class="contact-link" (click)="openContactModal($event)">
       <span class="contact-icon">✉</span>
     </a>
   </div>
+  
+  <button class="mobile-menu-toggle" [class.active]="mobileMenuOpen" (click)="toggleMobileMenu()" aria-label="Toggle Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </div>
 
 <div class="mobile-menu-overlay" [class.active]="mobileMenuOpen" (click)="closeMobileMenu()"></div>

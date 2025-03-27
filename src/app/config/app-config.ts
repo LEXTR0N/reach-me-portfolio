@@ -1,90 +1,48 @@
 // src/app/config/app-config.ts
 
+import { PersonalConfig } from './personal-config';
+import { HeaderConfig } from './header-config';
+import { FooterConfig } from './footer-config';
+import { HomeConfig } from './home-config';
+import { AboutConfig } from './about-config';
+import { SkillsConfig } from './skills-config';
+import { ProjectsConfig } from './projects-config';
+import { displayIfExists } from './utils';
+
 /**
  * Central configuration file for all text and layout properties
- * The structure is divided into logical sections
+ * The structure is divided into logical sections, imported from separate files
  */
 export const AppConfig = {
+  // Zentrale persönliche Informationen
+  personal: PersonalConfig,
+  
   // Header section
-  header: {
-    logoInitials: 'JC',
-    logoSecondary: '',  // Leave empty to hide
-    logoImage: {
-      path: 'assets/images/logo_dark.png',  // Path to your logo
-      alt: 'Portfolio Logo',
-      width: 120,
-      height: 36
-    },
-    navigation: {
-      home: 'Home',
-      work: 'Work', 
-      about: 'About',
-      blog: 'Blog'
-    }
-  },
+  header: HeaderConfig,
   
   // Contact information
   contact: {
-    email: 'max@example.com',
-    twitter: 'example',
-    linkedin: 'example',
-    github: 'example'
+    email: PersonalConfig.contact.email,
+    twitter: PersonalConfig.contact.social.twitter.username,
+    linkedin: PersonalConfig.contact.social.linkedin.username,
+    github: PersonalConfig.contact.social.github.username
   },
   
   // Homepage content
-  home: {
-    greeting: {
-      prefix: 'Hello, I\'m',
-      name: 'Max Mustermann'
-    },
-    headline: {
-      prefix: 'I built',
-      highlight: 'this portfolio template',
-      suffix: 'for everyone'
-    },
-    biography: 'I developed this website as an open-source portfolio template that anyone can adapt and use. While this is just one example of my work, I enjoy creating various digital solutions beyond portfolio websites.',
-    ctaButtons: {
-      primary: {
-        text: 'View my work',
-        link: '/work'
-      },
-      secondary: {
-        text: 'Contact me',
-        link: '/contact'
-      }
-    },
-    stats: {
-      stat_0: {
-        value: '26',
-        label: 'Pizza Slices Eaten'
-      },
-      stat_1: {
-        value: '9+',
-        label: 'Eureka Moments'
-      }
-    }
-  },
+  home: HomeConfig,
+  
+  // About page content
+  about: AboutConfig,
+  
+  // Skills page content
+  skills: SkillsConfig,
+  
+  // Projects page content
+  projects: ProjectsConfig,
   
   // Footer section
-  footer: {
-    tagline: 'Open-source portfolio template for everyone to use and customize.',
-    labels: {
-      pages: 'Pages',
-      connect: 'Connect'
-    },
-    copyrightName: 'Max Mustermann',
-    credits: 'Made with ❤ from LEXTR0N'
-  }
+  footer: FooterConfig
 };
 
-/**
- * Helper function for displaying texts
- * Returns the text if it exists and is not empty
- * Returns null if the text is empty or does not exist
- */
-export function displayIfExists(text: string | undefined | null): string | null {
-  if (text === undefined || text === null || text === '') {
-    return null;
-  }
-  return text;
-}
+// Re-export the utility function
+export { displayIfExists };
