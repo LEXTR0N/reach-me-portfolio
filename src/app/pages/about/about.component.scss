@@ -78,6 +78,7 @@
       flex-direction: column;
       gap: 2.5rem;
       padding: 2rem;
+      text-align: center;
     }
 
     @include b.breakpoint-down('sm') {
@@ -117,16 +118,24 @@
 
     .profile-details {
       flex: 1;
+      
+      @include b.breakpoint-down('lg') {
+        display: block;
+        text-align: center;
+        
+        /* Diese Regel sorgt dafür, dass alle direkten Kindelemente zentriert sind */
+        > * {
+          margin-left: auto;
+          margin-right: auto;
+          width: 100%;
+          max-width: 600px;
+        }
+      }
 
       h2 {
         font-size: 2.2rem;
         margin-bottom: 0.5rem;
         color: var(--text-primary);
-
-        @include b.breakpoint-down('md') {
-          font-size: 2rem;
-          text-align: center;
-        }
 
         @include b.breakpoint-down('sm') {
           font-size: 1.8rem;
@@ -138,10 +147,6 @@
         color: var(--accent);
         margin-bottom: 1.5rem;
         font-weight: 500;
-
-        @include b.breakpoint-down('md') {
-          text-align: center;
-        }
       }
 
       .profile-info {
@@ -150,21 +155,18 @@
         gap: 0.8rem;
         margin-bottom: 2rem;
 
-        @include b.breakpoint-down('md') {
-          align-items: center;
-          text-align: center;
-          width: 100%;
+        @include b.breakpoint-down('lg') {
+          /* Anzeige als Blocktext */
+          display: block;
         }
 
         .info-item {
           display: flex;
           align-items: center;
 
-          @include b.breakpoint-down('md') {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 100%;
+          @include b.breakpoint-down('lg') {
+            display: block;
+            margin-bottom: 0.8rem;
           }
 
           .info-label {
@@ -172,15 +174,19 @@
             color: var(--text-primary);
             width: 100px;
 
-
-            @include b.breakpoint-down('md') {
-              margin-bottom: 0.1rem;
+            @include b.breakpoint-down('lg') {
+              width: auto;
+              display: inline-block;
+              margin-right: 0.3rem;
             }
-
           }
 
           .info-value {
             color: var(--text-secondary);
+            
+            @include b.breakpoint-down('lg') {
+              display: inline-block;
+            }
           }
         }
       }
